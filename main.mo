@@ -1,4 +1,3 @@
-import Debug "mo:base/Debug";
 import Array "mo:base/Array";
 import Int "mo:base/Int";
 actor {
@@ -12,8 +11,8 @@ actor {
     var p:Nat = left;
     var i:Nat = left;
     var j:Nat = right;
-    while(i < j){
-        while(j >= p and as[j] >= temp){
+    while(i < j){   
+        while(j >= p and as[j] >= temp and j > 0){
          j -= 1;
         };
         if(j >= p){
