@@ -1,14 +1,14 @@
 import Debug "mo:base/Debug";
 import Array "mo:base/Array";
 import Int "mo:base/Int";
-let as : [var Int] = [var 8,4,7,9,10,12,15];
+
 func quicksort(as: [var Int],left: Nat,right: Nat): (){
     var temp:Int = as[left];   
     var p:Nat = left;
     var i:Nat = left;
     var j:Nat = right;
-    while(i < j){
-        while(j >= p and as[j] >= temp){
+    while(i < j){   
+        while(j >= p and as[j] >= temp and j > 0){
          j -= 1;
         };
         if(j >= p){
@@ -31,8 +31,9 @@ func quicksort(as: [var Int],left: Nat,right: Nat): (){
             quicksort(as,p+1,right);
         };
 };
-quicksort(as,0,as.size()-1);
-Debug.print(debug_show(as));
+let arr:[var Int] = [var 1,1,1,-1,-2,-3,-3,-3,-4,-4,-5,-100,100,100,100,9,9,9,1,8,2,4,40000,10,10,100,0,0,1000];
+quicksort(arr,0,arr.size()-1);
+Debug.print(debug_show(arr));
 actor {
     public func qsort(arr : [Int]) : async [Int] {
         let as : [var Int] = Array.thaw(arr);
